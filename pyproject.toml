@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adsonar"
+version = "1.0.0"
+description = "Search Meta's Ad Library through the official Graph API and export ads to JSON, JSONL or CSV."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Expedite Talent Solutions" }]
+keywords = ["ad library", "meta", "graph api", "ads archive", "competitor research", "marketing"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Topic :: Office/Business",
+  "License :: Other/Proprietary License",
+]
+dependencies = ["requests>=2.31"]
+
+[project.scripts]
+adsonar = "adsonar.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

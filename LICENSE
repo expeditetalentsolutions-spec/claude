@@ -1,0 +1,45 @@
+AdSonar Commercial License
+Copyright (c) 2026 Expedite Talent Solutions. All rights reserved.
+
+1. Grant. Subject to payment of the applicable fee and to these terms,
+   Expedite Talent Solutions ("Licensor") grants the purchaser ("Licensee")
+   a non-exclusive, non-transferable, worldwide license to install, use and
+   modify the AdSonar software and documentation (the "Software") for the
+   Licensee's own internal business purposes.
+
+2. Restrictions. Licensee may not, without the Licensor's prior written
+   consent:
+   a. sell, sublicense, rent, lease, redistribute or publish the Software or
+      any modified version of it, in source or compiled form;
+   b. offer the Software to third parties as a hosted or managed service;
+   c. remove or alter this license or any copyright notice.
+
+3. Third-party platforms. The Software is a client for Meta Platforms, Inc.'s
+   Ad Library API. Licensee must obtain its own Meta developer account and
+   access token and must comply with Meta's Platform Terms, Developer
+   Policies and Ad Library API terms. Licensee is solely responsible for how
+   it uses the Software and any data it retrieves. AdSonar is not affiliated
+   with, endorsed by or sponsored by Meta Platforms, Inc. "Meta", "Facebook"
+   and "Instagram" are trademarks of Meta Platforms, Inc.
+
+4. Ownership. The Software is licensed, not sold. Licensor retains all
+   right, title and interest in the Software. Modifications made by Licensee
+   remain subject to this license.
+
+5. Termination. This license terminates automatically if Licensee breaches
+   any of its terms. On termination Licensee must stop using and delete all
+   copies of the Software.
+
+6. No warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+   KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+   LICENSOR DOES NOT GUARANTEE THE AVAILABILITY, COMPLETENESS OR ACCURACY OF
+   DATA RETURNED BY THIRD-PARTY APIS.
+
+7. Limitation of liability. IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY
+   CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+   OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+   ITS USE. LICENSOR'S TOTAL LIABILITY SHALL NOT EXCEED THE FEE PAID FOR THE
+   SOFTWARE.
+
+For licensing enquiries contact: vijay.singh@expeditets.com

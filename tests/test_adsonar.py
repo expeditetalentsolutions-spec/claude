@@ -6,9 +6,9 @@ from pathlib import Path
 
 import requests
 
-from ad_library.cli import main
-from ad_library.client import AdLibraryClient, AdLibraryError
-from ad_library.export import flatten_ad, write_ads
+from adsonar.cli import main
+from adsonar.client import AdLibraryClient, AdLibraryError
+from adsonar.export import flatten_ad, write_ads
 
 AD1 = {
     "id": "111",
@@ -159,7 +159,7 @@ class CliTests(unittest.TestCase):
         import os
         old = os.environ.pop("META_ACCESS_TOKEN", None)
         try:
-            self.assertEqual(main(["-q", "shoes", "-o", "/dev/null"]), 1)
+            self.assertEqual(main(["-q", "shoes", "-o", "/dev/null", "--env-file", "/nonexistent"]), 1)
         finally:
             if old is not None:
                 os.environ["META_ACCESS_TOKEN"] = old

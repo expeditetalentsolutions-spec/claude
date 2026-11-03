@@ -1,4 +1,4 @@
-"""Command-line entry point: python -m ad_library --help"""
+"""Command-line entry point: adsonar --help"""
 
 from __future__ import annotations
 
@@ -7,12 +7,16 @@ import logging
 import os
 import sys
 from pathlib import Path
+from collections import Counter
 from typing import List, Optional
 
+from . import __version__
+
 from .client import DEFAULT_API_VERSION, EU_FIELDS, AdLibraryClient, AdLibraryError, default_fields
+from .envfile import load_env_file
 from .export import write_ads
 
-LOGGER = logging.getLogger("ad_library")
+LOGGER = logging.getLogger("adsonar")
 
 
 def _csv_list(value: str) -> List[str]:
@@ -21,8 +25,9 @@ def _csv_list(value: str) -> List[str]:
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(
-        prog="ad_library",
-        description="Search Meta's Ad Library through the official Graph API and export results.",
+        prog="adsonar",
+        description="AdSonar - search Meta's Ad Library through the official Graph API and export results.",
+        epilog="Docs: see README.md and docs/ in the AdSonar repository.",
     )
     p.add_argument("-q", "--search", help="Keywords to search for in ad text.")
     p.add_argument("--page-ids", type=_csv_list, help="Comma-separated Facebook page IDs.")
@@ -51,7 +56,10 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p.add_argument("-o", "--output", default="output/ads.json", help="Output file path.")
     p.add_argument("-f", "--format", choices=["json", "jsonl", "csv"], help="Output format (default: from file extension).")
     p.add_argument("--token", help="Access token (default: $META_ACCESS_TOKEN).")
-    p.add_argument("--api-version", default=os.environ.get("META_API_VERSION", DEFAULT_API_VERSION))
+    p.add_argument("--api-version", help=f"Graph API version (default: $META_API_VERSION or {DEFAULT_API_VERSION}).")
+    p.add_argument("--env-file", default=".env", help="Load settings from this file if it exists (default: .env).")
+    p.add_argument("--quiet", action="store_true", help="Only print errors.")
+    p.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     p.add_argument("-v", "--verbose", action="store_true")
     args = p.parse_args(argv)
 
@@ -66,17 +74,20 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
 def main(argv: Optional[List[str]] = None) -> int:
     args = parse_args(argv)
     logging.basicConfig(
-        level=logging.DEBUG if args.verbose else logging.INFO,
+        level=logging.ERROR if args.quiet else logging.DEBUG if args.verbose else logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",
     )
+    if load_env_file(args.env_file):
+        LOGGER.debug("Loaded settings from %s", args.env_file)
     token = args.token or os.environ.get("META_ACCESS_TOKEN", "")
+    api_version = args.api_version or os.environ.get("META_API_VERSION") or DEFAULT_API_VERSION
 
     fields = args.fields or default_fields(args.ad_type)
     if args.eu_fields:
         fields = fields + [f for f in EU_FIELDS if f not in fields]
 
     try:
-        client = AdLibraryClient(token, api_version=args.api_version)
+        client = AdLibraryClient(token, api_version=api_version)
         ads = list(
             client.iter_ads(
                 max_items=args.max_items or None,
@@ -101,6 +112,9 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     count = write_ads(ads, Path(args.output), args.format)
     LOGGER.info("Wrote %d ads to %s (%s)", count, args.output, args.format)
+    top = Counter(ad.get("page_name") or ad.get("page_id") or "unknown" for ad in ads).most_common(5)
+    if top:
+        LOGGER.info("Top advertisers: %s", ", ".join(f"{name} ({n})" for name, n in top))
     return 0
 
 
