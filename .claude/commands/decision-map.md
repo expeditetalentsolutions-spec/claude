@@ -1,0 +1,63 @@
+# Decision Map Command
+
+Thin slash-command entry point for the `decision-map` skill. This command owns argument parsing and reference resolution only. Map format, tracker selection, labels, claim arbitration, frontier computation, resolution, fog graduation, and state reporting remain exclusively in the skill.
+
+## Workflow
+
+1. Parse the first token as the mode. `chart` sends the remaining text as a loose idea to Mode A. `work` selects Mode B.
+2. For a bare invocation, treat a map URL or `#N` as `work`; treat free text as `chart`; when neither exists, ask which mode the user intends.
+3. In work mode with an explicit GitHub reference, resolve it with `gh issue view N --json number,title,url,labels,state`. Require the `decision-map:map` label before handing off.
+4. When work mode has no reference, defer map discovery to the skill's selected backend. If several maps are eligible, list their linked titles and stop; never select one silently.
+5. Load `skills/decision-map`, hand it the resolved mode and map identity, then begin that mode at step 1.
+6. Return the skill's report unchanged. Do not add a second selection, a plan, tracker calls, or claim logic after handoff.
+
+`chart` creates topology only: it never resolves a ticket. `work` resolves at most one ticket, including when a second frontier ticket is immediately available. The command does not turn an unlabeled issue into a new map because that hides an input error and creates a duplicate map.
+
+## Syntax
+
+| Invocation | Mode | Result |
+|---|---|---|
+| `/decision-map chart IDEA` | Chart | Pass the loose effort description to Mode A |
+| `/decision-map work MAP` | Work | Resolve the labeled map and pass it to Mode B |
+| `/decision-map #N` | Work | Resolve issue `#N` only when it is a map |
+| `/decision-map MAP-URL` | Work | Resolve the referenced map URL |
+| `/decision-map IDEA` | Chart | Treat non-reference text as the loose idea |
+
+A `MAP` is a GitHub issue number, `#N`, or issue URL; supplying one explicitly selects GitHub. `chart` uses the local `.docs/decision-maps/<effort>/` backend unless the user expressly selects GitHub or `.docs/agents/issue-tracker.md` specifies another backend. The command does not provide a separate local-file argument: local map selection is part of the skill's tracker-backed workflow, not a rival command contract.
+
+## Argument Rules
+
+| Input | Rule | Failure |
+|---|---|---|
+| `chart` with empty idea | Ask for the destination or unresolved effort | Do not create a blank map |
+| `work` with unlabeled issue | Reject the reference | Do not silently create a map |
+| `work` with no map and one open map | Use the one map | Report the selected linked title |
+| `work` with several open maps | List all linked titles | Stop for selection |
+| Bare command with no argument | Ask for `chart` or `work` | Do not infer intent |
+
+Use `gh issue view` to resolve explicit GitHub references. Otherwise, hand off map selection to the skill's documented backend process; it uses `.docs/decision-maps/` unless `.docs/agents/issue-tracker.md` specifies another backend. This command never duplicates the tracker capability probe or degraded-path parsing.
+
+## Output
+
+Return the skill report verbatim. Chart output contains map identity, created ticket topology, blockers, frontier, remaining fog, state, AFK-ready count, and the stop condition. Work output contains the one resolved ticket, closure path, decision or evidence, topology changes, frontier, state, and stop condition. A `COMPLETE` report recommends `plan-prompts`; it never emits implementation milestones or tasks.
+
+```text
+/decision-map work #482
+→ resolve #482; verify its decision-map:map label
+→ load skills/decision-map in work mode
+→ return exactly one work report
+```
+
+## Error Handling
+
+| Problem | Resolution |
+|---|---|
+| Unknown mode | State the valid `chart` and `work` modes and stop |
+| Missing chart idea | Ask for the loose effort description |
+| Explicit issue is not labeled `decision-map:map` | Reject it; do not create a replacement map |
+| No open map for bare work | Report that no map exists and stop |
+| Multiple open maps | List linked titles and require selection |
+| GitHub lookup fails | Return the `gh` failure; do not fall back to a new map |
+| Skill handoff fails | Return the failure; do not reproduce tracker or claim logic |
+
+The error boundary is deliberate. A command parser that reconstructs the skill's operational behavior will drift from the single source of truth and can violate the one-ticket rule.

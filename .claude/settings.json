@@ -1,0 +1,124 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/anatomy-index/handler.sh",
+            "timeout_ms": 10000,
+            "_hook_name": "anatomy-index"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/git-protection/handler.sh",
+            "timeout_ms": 5000,
+            "_hook_name": "git-protection"
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/stack-guard/handler.sh",
+            "timeout_ms": 5000,
+            "_hook_name": "stack-guard"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/pre-edit-backup/handler.sh",
+            "timeout_ms": 5000,
+            "_hook_name": "pre-edit-backup"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/read-dedup/handler.sh",
+            "timeout_ms": 5000,
+            "_hook_name": "read-dedup"
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/simplify-ignore/handler.sh",
+            "timeout_ms": 5000,
+            "_hook_name": "simplify-ignore"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/anatomy-index/handler.sh",
+            "timeout_ms": 10000,
+            "_hook_name": "anatomy-index"
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/cost-tracker/handler.sh",
+            "timeout_ms": 5000,
+            "_hook_name": "cost-tracker"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/cost-tracker/handler.sh",
+            "timeout_ms": 5000,
+            "_hook_name": "cost-tracker"
+          },
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/handoff-on-stop/handler.sh",
+            "timeout_ms": 10000,
+            "_hook_name": "handoff-on-stop"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/simplify-ignore/handler.sh",
+            "timeout_ms": 5000,
+            "_hook_name": "simplify-ignore"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/prompt-context/handler.sh",
+            "timeout_ms": 5000,
+            "_hook_name": "prompt-context"
+          }
+        ]
+      }
+    ]
+  }
+}
