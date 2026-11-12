@@ -1,0 +1,487 @@
+<title>Expedite SEO Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column of numbered report sections; each section pairs a visual with a short takeaway. */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --ink:#152033; --muted:#5b6678; --line:#dfe3ea;
+  --accent:#1f5fbf; --accent-soft:#e3ecfa;
+  --high:#c2410c; --high-soft:#fdeadf; --med:#a16207; --med-soft:#fbf1d6; --low:#3f6f4f; --low-soft:#e2f0e6;
+  --bar-muted:#c9d0db;
+  --f-display:"Space Grotesk",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1520; --surface:#161e2c; --ink:#e6ebf3; --muted:#9aa6b8; --line:#2a3446;
+  --accent:#7aa8f0; --accent-soft:#1d2c46;
+  --high:#f28b5b; --high-soft:#3a2219; --med:#e2b54c; --med-soft:#352c16; --low:#7fc196; --low-soft:#1b2f23;
+  --bar-muted:#3a4558; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1520; --surface:#161e2c; --ink:#e6ebf3; --muted:#9aa6b8; --line:#2a3446;
+  --accent:#7aa8f0; --accent-soft:#1d2c46;
+  --high:#f28b5b; --high-soft:#3a2219; --med:#e2b54c; --med-soft:#352c16; --low:#7fc196; --low-soft:#1b2f23;
+  --bar-muted:#3a4558; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--f-body);margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(28px,4.5vw,40px);font-weight:700}
+h2{font-size:24px;font-weight:600}
+h3{font-size:16px;font-weight:600}
+p{margin:0;max-width:68ch}
+.muted{color:var(--muted)}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+code,.mono{font-family:var(--f-mono);font-size:.88em}
+section{display:flex;flex-direction:column;gap:20px}
+.sec-head{display:flex;flex-direction:column;gap:8px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.grid>*{min-width:0}
+.note{border-left:3px solid var(--accent);padding:4px 0 4px 14px;color:var(--muted);font-size:14px}
+
+/* header */
+header{display:flex;flex-direction:column;gap:14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--muted)}
+.tile{display:flex;flex-direction:column;gap:4px}
+.tile b{font:600 32px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.tile span{font-size:13px;color:var(--muted)}
+.tile.bad b{color:var(--high)}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1 var(--f-mono);padding:5px 8px;border-radius:999px;white-space:nowrap}
+.p-high{background:var(--high-soft);color:var(--high)}
+.p-med{background:var(--med-soft);color:var(--med)}
+.p-low{background:var(--low-soft);color:var(--low)}
+.p-acc{background:var(--accent-soft);color:var(--accent)}
+
+/* USP */
+.usp{display:flex;flex-direction:column;gap:10px}
+.usp .rank{font:600 13px/1 var(--f-mono);color:var(--accent)}
+.usp ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px}
+
+/* funnel */
+.funnel{display:flex;flex-direction:column;gap:8px}
+.fstep{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center}
+.fbar{background:var(--accent-soft);border-radius:6px;padding:10px 14px;font-size:14px}
+.fbar strong{display:block;font-weight:600}
+.fbar small{color:var(--muted)}
+.fstep .lbl{font:600 13px/1.3 var(--f-display);text-align:right}
+@media (max-width:560px){.fstep{grid-template-columns:1fr}.fstep .lbl{text-align:left}.fbar{margin:0!important}}
+
+/* matrix */
+.matrix{display:grid;grid-template-columns:auto 1fr 1fr;gap:8px}
+.matrix .ax{font:500 12px/1.3 var(--f-mono);color:var(--muted);display:flex;align-items:center;justify-content:center;text-align:center;padding:4px}
+.matrix .cell{border:1px dashed var(--line);border-radius:8px;padding:12px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;min-height:84px}
+.matrix .cell.win{background:var(--high-soft);border-style:solid;border-color:transparent}
+.matrix .cell .cap{width:100%;font:500 11px/1 var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.chip{font:500 12px/1 var(--f-mono);padding:6px 8px;border-radius:6px;background:var(--surface);border:1px solid var(--line);cursor:help}
+.chip:focus-visible,.fbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* fix list */
+.fixes{display:flex;flex-direction:column}
+.fix{display:grid;grid-template-columns:44px 1fr auto;gap:12px;padding:12px 0;border-top:1px solid var(--line);align-items:start}
+.fix:first-child{border-top:0}
+.fix .id{font:600 13px/1.5 var(--f-mono);color:var(--muted)}
+.fix .body{min-width:0;display:flex;flex-direction:column;gap:2px}
+.fix .body span{color:var(--muted);font-size:14px}
+@media (max-width:560px){.fix{grid-template-columns:36px 1fr}.fix .pill{grid-column:2;justify-self:start}}
+
+/* bars */
+.bars{display:flex;flex-direction:column;gap:6px}
+.brow{display:grid;grid-template-columns:minmax(0,260px) 1fr 34px;gap:10px;align-items:center;font-size:13px}
+.brow .nm{font-family:var(--f-mono);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
+.brow .tr{height:14px;background:transparent;position:relative}
+.brow .tr i{position:absolute;inset:0 auto 0 0;border-radius:3px;background:var(--bar-muted)}
+.brow.c-high .tr i{background:var(--high)}
+.brow.c-acc .tr i{background:var(--accent)}
+.brow .v{font-variant-numeric:tabular-nums;text-align:right;font-weight:600}
+.bgroup{font:600 12px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:10px}
+@media (max-width:560px){.brow{grid-template-columns:1fr 34px}.brow .nm{grid-column:1/-1}}
+
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* diagrams */
+.scroll{overflow-x:auto}
+svg text{font-family:var(--f-body)}
+.d-node{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.d-money{fill:var(--accent-soft);stroke:var(--accent)}
+.d-dead{fill:var(--high-soft);stroke:var(--high)}
+.d-t{fill:var(--ink);font-size:13px;font-weight:600}
+.d-s{fill:var(--muted);font-size:11px}
+.d-l{stroke:var(--bar-muted);stroke-width:1.5;fill:none}
+.d-up{stroke:var(--accent);stroke-width:2;fill:none}
+.d-across{stroke:var(--low);stroke-width:1.5;fill:none;stroke-dasharray:4 3}
+.d-cta{stroke:var(--med);stroke-width:1.5;fill:none}
+
+/* strip chart */
+.strip svg{display:block;width:100%;height:auto}
+.s-axis{stroke:var(--line)}
+.s-lim{stroke:var(--high);stroke-dasharray:4 3}
+.s-txt{fill:var(--muted);font-size:11px;font-family:var(--f-mono)}
+.s-ok{fill:var(--low)}
+.s-bad{fill:var(--high)}
+
+/* table */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.fbtn{font:500 13px/1 var(--f-body);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:760px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px/1.2 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+td.u{font-family:var(--f-mono);font-size:12px;word-break:break-all}
+td.a{font-weight:500}
+.count{font-size:13px;color:var(--muted)}
+
+/* clusters */
+.cluster{display:flex;flex-direction:column;gap:12px}
+.pillar{background:var(--accent-soft);border-radius:8px;padding:12px}
+.pillar b{display:block;font-family:var(--f-display)}
+.spokes{display:flex;flex-direction:column;gap:6px;padding-left:14px;border-left:2px solid var(--accent-soft)}
+.spoke{font-size:13px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.spoke .mono{color:var(--muted)}
+.spoke .new{font:600 10px/1 var(--f-mono);color:var(--low);background:var(--low-soft);padding:3px 5px;border-radius:4px}
+.spoke .gap{font:600 10px/1 var(--f-mono);color:var(--high);background:var(--high-soft);padding:3px 5px;border-radius:4px}
+
+/* titles table */
+.tw td:nth-child(2){font-weight:500}
+.tw td:nth-child(3){color:var(--muted)}
+
+/* gantt */
+.gantt{display:grid;grid-template-columns:minmax(0,260px) repeat(13,minmax(22px,1fr));gap:4px 2px;align-items:center;min-width:680px;font-size:13px}
+.gantt .wk{font:500 11px/1 var(--f-mono);color:var(--muted);text-align:center}
+.gantt .task{padding-right:10px}
+.gantt .task small{display:block;color:var(--muted);font-size:12px}
+.gantt .bar{height:22px;border-radius:5px}
+.o-dev{background:var(--accent)} .o-content{background:var(--low)} .o-mkt{background:var(--med)} .o-seo{background:var(--high)}
+
+footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+@media (prefers-reduced-motion:no-preference){.fbtn{transition:background .15s,color .15s}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">SEO strategy · expeditets.co.in</span>
+  <h1>Expedite SEO Plan</h1>
+  <p class="muted">What to fix, what to link, what to publish and what to measure for Expedite Software Services, based on a crawl of all 29 pages in the site's sitemap on 12 Nov 2026.</p>
+  <div class="meta"><span>Crawl: 29 sitemap URLs</span><span>No Search Console or keyword-volume data yet</span><span>Full write-up: <code>docs/seo/expeditets-seo-strategy.md</code></span></div>
+  <div class="grid g5" style="margin-top:8px">
+    <div class="panel tile bad"><b>0 / 29</b><span>pages with a canonical tag</span></div>
+    <div class="panel tile bad"><b>0</b><span>internal links to the Case Studies page</span></div>
+    <div class="panel tile bad"><b>1</b><span>internal link into each blog post</span></div>
+    <div class="panel tile"><b>21 / 27</b><span>titles longer than 60 characters</span></div>
+    <div class="panel tile"><b>41</b><span>internal links in the plan</span></div>
+  </div>
+  <p class="note">Keyword targets in this plan are hypotheses until checked against Search Console or Keyword Planner. Crawl findings (canonicals, links, lengths, schema) are measured.</p>
+</header>
+
+<!-- 1 POSITIONING -->
+<section>
+  <div class="sec-head"><span class="eyebrow">1 · Positioning</span><h2>What to be known for in search</h2>
+  <p class="muted">Ranked by how winnable each message is. Generic "IT staffing India" searches are crowded with bigger vendors, so lead with the niche.</p></div>
+  <div class="grid g3">
+    <div class="panel usp"><span class="rank">Lead message</span><h3>Guidewire talent for P&amp;C insurers</h3>
+      <ul><li>Narrow, high-value niche</li><li>All 4 blog posts already cover it</li><li>Pillar page: <code>/guidewire-services/</code></li></ul></div>
+    <div class="panel usp"><span class="rank">Second message</span><h3>US contracts, India delivery</h3>
+      <ul><li>Alpharetta, GA headquarters; Greater Noida engineers</li><li>US accountability at offshore cost</li><li>Use it in titles, H1s and schema</li></ul></div>
+    <div class="panel usp"><span class="rank">Third message</span><h3>Healthcare and insurance compliance</h3>
+      <ul><li>4 healthcare case studies (HIPAA), 2 insurance</li><li>Client logos include Optum, Anthem, Cigna</li><li>Future page: HIPAA-compliant software</li></ul></div>
+  </div>
+</section>
+
+<!-- 2 KPIs -->
+<section>
+  <div class="sec-head"><span class="eyebrow">2 · KPIs</span><h2>What to measure, from first search to signed client</h2></div>
+  <div class="panel funnel">
+    <div class="fstep"><div class="lbl">Visibility</div><div class="fbar" style="margin-right:0"><strong>Non-brand impressions · Guidewire terms in the top 10</strong><small>Search Console, filtered to exclude "expedite"</small></div></div>
+    <div class="fstep"><div class="lbl">Ranking</div><div class="fbar" style="margin-right:8%"><strong>Average position of each service page's main query</strong><small>Search Console · target: top 10</small></div></div>
+    <div class="fstep"><div class="lbl">Clicks</div><div class="fbar" style="margin-right:16%"><strong>Non-brand clicks · CTR above 2% on pages with 500+ impressions</strong><small>Search Console</small></div></div>
+    <div class="fstep"><div class="lbl">Leads</div><div class="fbar" style="margin-right:24%"><strong>Contact-form submissions from organic search</strong><small>GA4 conversion event · the business KPI</small></div></div>
+    <div class="fstep"><div class="lbl">Recruiting</div><div class="fbar" style="margin-right:32%"><strong>Candidate applications from organic search</strong><small>JobDiva source tracking</small></div></div>
+    <div class="fstep"><div class="lbl">Health</div><div class="fbar" style="margin-right:40%"><strong>Indexed pages vs. submitted (target 29 / 29)</strong><small>Search Console Pages report</small></div></div>
+  </div>
+  <p class="note">Setup gap: confirm GA4 records a conversion when the contact form is submitted. Without it, SEO can't be tied to leads.</p>
+</section>
+
+<!-- 3 TECHNICAL -->
+<section>
+  <div class="sec-head"><span class="eyebrow">3 · Technical fixes</span><h2>14 issues, sorted by impact and effort</h2>
+  <p class="muted">Start top left: high impact, low effort. Hover or focus a chip to see the issue.</p></div>
+  <div class="grid g2">
+    <div class="panel">
+      <div class="matrix" id="matrix">
+        <div></div><div class="ax">Low effort</div><div class="ax">Medium or unknown effort</div>
+        <div class="ax">High<br>impact</div><div class="cell win" data-c="H-L"><span class="cap">Do first</span></div><div class="cell" data-c="H-M"></div>
+        <div class="ax">Medium<br>impact</div><div class="cell" data-c="M-L"><span class="cap">Quick wins</span></div><div class="cell" data-c="M-M"></div>
+        <div class="ax">Low<br>impact</div><div class="cell" data-c="L-L"><span class="cap">Batch with others</span></div><div class="cell" data-c="L-M"></div>
+      </div>
+      <p class="muted" style="font-size:13px;margin-top:12px">T14 (overlap with expeditets.com) needs your decision, so it isn't placed.</p>
+    </div>
+    <div class="panel fixes" id="fixes"></div>
+  </div>
+</section>
+
+<!-- 4 INTERNAL LINKING -->
+<section>
+  <div class="sec-head"><span class="eyebrow">4 · Internal linking</span><h2>The content that builds authority is cut off from the pages that sell</h2>
+  <p class="muted">Internal links pointing to each page. Nav and footer pages get links from every page; blog posts and case studies get one or two, and link out to nothing.</p></div>
+  <div class="panel">
+    <div class="legend"><span><i style="background:var(--accent)"></i>In nav and footer</span><span><i style="background:var(--bar-muted)"></i>Body links only</span><span><i style="background:var(--high)"></i>Orphan (0 links)</span></div>
+    <div class="bars" id="inbars" style="margin-top:12px"></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="panel">
+      <h3>Now</h3><p class="muted" style="font-size:13px;margin:4px 0 10px">Links flow one way, into content that leads nowhere.</p>
+      <div class="scroll"><svg viewBox="0 0 440 300" width="100%" role="img" aria-label="Current link structure: service pages link down to a few case studies and blog posts, which link back to nothing">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--bar-muted)"/></marker></defs>
+        <rect class="d-node" x="170" y="12" width="100" height="40" rx="6"/><text class="d-t" x="220" y="37" text-anchor="middle">Home</text>
+        <rect class="d-node d-money" x="20" y="100" width="180" height="44" rx="6"/><text class="d-t" x="110" y="120" text-anchor="middle">Guidewire services</text><text class="d-s" x="110" y="135" text-anchor="middle">0 links in body</text>
+        <rect class="d-node d-money" x="240" y="100" width="180" height="44" rx="6"/><text class="d-t" x="330" y="120" text-anchor="middle">Other 4 services</text><text class="d-s" x="330" y="135" text-anchor="middle">3 body links each</text>
+        <rect class="d-node d-dead" x="20" y="200" width="120" height="44" rx="6"/><text class="d-t" x="80" y="220" text-anchor="middle">4 blog posts</text><text class="d-s" x="80" y="235" text-anchor="middle">0 links out</text>
+        <rect class="d-node d-dead" x="160" y="200" width="120" height="44" rx="6"/><text class="d-t" x="220" y="220" text-anchor="middle">12 case studies</text><text class="d-s" x="220" y="235" text-anchor="middle">0 links out</text>
+        <rect class="d-node d-dead" x="300" y="200" width="120" height="44" rx="6"/><text class="d-t" x="360" y="220" text-anchor="middle">Case Studies hub</text><text class="d-s" x="360" y="235" text-anchor="middle">0 links in</text>
+        <path class="d-l" d="M200 52 L120 98" marker-end="url(#ah)"/><path class="d-l" d="M240 52 L320 98" marker-end="url(#ah)"/>
+        <path class="d-l" d="M90 52 C40 120 40 160 70 198" marker-end="url(#ah)" stroke-dasharray="2 3"/><text class="d-s" x="16" y="70">from /blog/ only</text>
+        <path class="d-l" d="M300 144 L235 198" marker-end="url(#ah)"/>
+        <text class="d-s" x="220" y="280" text-anchor="middle">Guidewire pillar ↔ Guidewire blog posts: no links either way</text>
+      </svg></div>
+    </div>
+    <div class="panel">
+      <h3>After the plan</h3><p class="muted" style="font-size:13px;margin:4px 0 10px">Content links up to its service page, across to related pages, and on to Contact.</p>
+      <div class="scroll"><svg viewBox="0 0 440 300" width="100%" role="img" aria-label="Planned link structure: blog posts and case studies link up to service pages, across to siblings, and to the contact page">
+        <defs>
+          <marker id="au" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--accent)"/></marker>
+          <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--med)"/></marker>
+        </defs>
+        <rect class="d-node" x="170" y="12" width="100" height="40" rx="6"/><text class="d-t" x="220" y="37" text-anchor="middle">Home + nav</text>
+        <rect class="d-node d-money" x="20" y="100" width="180" height="44" rx="6"/><text class="d-t" x="110" y="120" text-anchor="middle">Guidewire services</text><text class="d-s" x="110" y="135" text-anchor="middle">links to posts + proof</text>
+        <rect class="d-node d-money" x="240" y="100" width="180" height="44" rx="6"/><text class="d-t" x="330" y="120" text-anchor="middle">Other 4 services</text><text class="d-s" x="330" y="135" text-anchor="middle">links to their case studies</text>
+        <rect class="d-node" x="20" y="200" width="120" height="44" rx="6"/><text class="d-t" x="80" y="226" text-anchor="middle">Blog posts</text>
+        <rect class="d-node" x="160" y="200" width="120" height="44" rx="6"/><text class="d-t" x="220" y="226" text-anchor="middle">Case studies</text>
+        <rect class="d-node" x="300" y="200" width="120" height="44" rx="6"/><text class="d-t" x="360" y="226" text-anchor="middle">Contact</text>
+        <path class="d-up" d="M70 198 L95 146" marker-end="url(#au)"/><path class="d-up" d="M100 146 L80 198" marker-end="url(#au)" opacity=".45"/>
+        <path class="d-up" d="M200 198 L140 146" marker-end="url(#au)"/><path class="d-up" d="M240 198 L310 146" marker-end="url(#au)"/>
+        <path class="d-up" d="M200 52 L120 98" marker-end="url(#au)" opacity=".45"/><path class="d-up" d="M240 52 L320 98" marker-end="url(#au)" opacity=".45"/>
+        <path class="d-across" d="M40 244 C40 270 120 270 120 246"/><path class="d-across" d="M180 244 C180 270 260 270 260 246"/>
+        <path class="d-cta" d="M280 222 L298 222" marker-end="url(#ac)"/><path class="d-cta" d="M140 236 C200 290 330 290 350 246" marker-end="url(#ac)"/>
+        <text class="d-s" x="80" y="288" text-anchor="middle">across to siblings</text>
+      </svg></div>
+      <div class="legend" style="margin-top:8px"><span><i style="background:var(--accent)"></i>Up to service</span><span><i style="background:var(--low)"></i>Across to related</span><span><i style="background:var(--med)"></i>To Contact</span></div>
+    </div>
+  </div>
+
+  <div class="panel" style="display:flex;flex-direction:column;gap:14px">
+    <h3>All 41 links to add</h3>
+    <div class="filters" role="group" aria-label="Filter by priority">
+      <button class="fbtn" type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+      <button class="fbtn" type="button" id="f-1" data-f="1" aria-pressed="false">Priority 1</button>
+      <button class="fbtn" type="button" id="f-2" data-f="2" aria-pressed="false">Priority 2</button>
+      <button class="fbtn" type="button" id="f-3" data-f="3" aria-pressed="false">Priority 3</button>
+    </div>
+    <span class="count" id="lcount"></span>
+    <div class="scroll"><table><thead><tr><th>P</th><th>From</th><th>To</th><th>Anchor text</th><th>Where on the page</th></tr></thead><tbody id="ltable"></tbody></table></div>
+    <p class="muted" style="font-size:13px">Anchor text mix: about 50% descriptive keyword phrases, 30% partial match, 20% brand or natural wording. Never "click here". On blog cards, wrap only the title in the link.</p>
+  </div>
+</section>
+
+<!-- 5 TITLES -->
+<section>
+  <div class="sec-head"><span class="eyebrow">5 · Titles and descriptions</span><h2>Most titles and descriptions get cut off in Google</h2>
+  <p class="muted">Each dot is one page. Google shows about 60 title characters and 155–160 description characters. The 2 pages that timed out in the first crawl pass aren't plotted.</p></div>
+  <div class="grid g2">
+    <div class="panel strip"><h3>Title length</h3><div id="strip-t"></div></div>
+    <div class="panel strip"><h3>Meta description length</h3><div id="strip-d"></div></div>
+  </div>
+  <div class="panel">
+    <h3 style="margin-bottom:10px">Proposed titles for the main pages</h3>
+    <div class="scroll"><table class="tw"><thead><tr><th>Page</th><th>New title</th><th>Chars</th></tr></thead><tbody id="ttable"></tbody></table></div>
+    <p class="muted" style="font-size:13px;margin-top:10px">New meta descriptions for each of these are in the full write-up. The fastest saving: shorten the brand suffix "| Expedite Software Services" (29 characters) to "| Expedite".</p>
+  </div>
+</section>
+
+<!-- 6 CONTENT -->
+<section>
+  <div class="sec-head"><span class="eyebrow">6 · Content plan</span><h2>Three topic clusters, in priority order</h2>
+  <p class="muted">Each new page links up to its pillar. Target searches are guesses until checked against real search data.</p></div>
+  <div class="grid g3">
+    <div class="panel cluster"><span class="pill p-high" style="align-self:flex-start">Priority 1 · the moat</span>
+      <div class="pillar"><b>Guidewire</b><span class="mono muted">/guidewire-services/</span></div>
+      <div class="spokes">
+        <div class="spoke"><span class="new">NEW</span>PolicyCenter developers</div>
+        <div class="spoke"><span class="new">NEW</span>ClaimCenter consultants</div>
+        <div class="spoke"><span class="new">NEW</span>BillingCenter developers</div>
+        <div class="spoke"><span class="new">NEW</span>Guidewire Cloud migration services</div>
+        <div class="spoke"><span class="new">NEW</span>Guidewire QA and testing</div>
+        <div class="spoke"><span class="new">NEW</span>Blog: Guidewire developer rates</div>
+        <div class="spoke"><span class="new">NEW</span>Blog: Gosu developer skills</div>
+        <div class="spoke"><span class="gap">GAP</span>A Guidewire case study (you have none)</div>
+        <div class="spoke"><span class="mono">4 existing posts</span>refresh the 2025 ones for 2026</div>
+      </div></div>
+    <div class="panel cluster"><span class="pill p-med" style="align-self:flex-start">Priority 2 · competitive</span>
+      <div class="pillar"><b>Staffing and outsourcing</b><span class="mono muted">/staff-augmentation/ · /it-outsourcing/ · /offshore-services/</span></div>
+      <div class="spokes">
+        <div class="spoke"><span class="new">NEW</span>Hire Java / .NET / Python / React developers</div>
+        <div class="spoke"><span class="new">NEW</span>Blog: staff augmentation vs. outsourcing</div>
+        <div class="spoke"><span class="new">NEW</span>Blog: offshore development cost in India</div>
+        <div class="spoke"><span class="new">NEW</span>Blog: US contract, India delivery</div>
+        <div class="spoke"><span class="mono">8 case studies</span>link each to its service</div>
+      </div></div>
+    <div class="panel cluster"><span class="pill p-low" style="align-self:flex-start">Priority 3</span>
+      <div class="pillar"><b>Healthcare IT</b><span class="mono muted">/custom-software-development/</span></div>
+      <div class="spokes">
+        <div class="spoke"><span class="new">NEW</span>HIPAA-compliant software development</div>
+        <div class="spoke"><span class="mono">4 healthcare case studies</span>link to the new page</div>
+      </div></div>
+  </div>
+</section>
+
+<!-- 7 AUTHORITY -->
+<section>
+  <div class="sec-head"><span class="eyebrow">7 · Authority</span><h2>Where the backlinks will come from</h2></div>
+  <div class="grid g2">
+    <div class="panel"><h3>Guidewire ecosystem</h3><p class="muted" style="font-size:14px;margin-top:6px">PartnerConnect listing if eligible. Certified staff listed and posting on LinkedIn.</p></div>
+    <div class="panel"><h3>B2B directories</h3><p class="muted" style="font-size:14px;margin-top:6px">Clutch, GoodFirms, DesignRush profiles, with reviews from case-study clients.</p></div>
+    <div class="panel"><h3>Data content</h3><p class="muted" style="font-size:14px;margin-top:6px">A yearly Guidewire talent market report with rate ranges from your own placements.</p></div>
+    <div class="panel"><h3>The US site</h3><p class="muted" style="font-size:14px;margin-top:6px">expeditets.com should link to <code>/guidewire-services/</code> with descriptive anchor text, not only to the homepage.</p></div>
+  </div>
+</section>
+
+<!-- 8 ROADMAP -->
+<section>
+  <div class="sec-head"><span class="eyebrow">8 · Roadmap</span><h2>90 days, week by week</h2></div>
+  <div class="panel scroll">
+    <div class="gantt" id="gantt"></div>
+    <div class="legend" style="margin-top:14px"><span><i class="o-dev"></i>Dev</span><span><i class="o-content"></i>Content</span><span><i class="o-mkt"></i>Marketing</span><span><i class="o-seo"></i>SEO review</span></div>
+  </div>
+</section>
+
+<!-- 9 NEXT -->
+<section>
+  <div class="sec-head"><span class="eyebrow">9 · Decisions needed</span><h2>Two things only you can unblock</h2></div>
+  <div class="grid g2">
+    <div class="panel"><span class="pill p-acc">Data</span><h3 style="margin-top:10px">Search Console access</h3><p class="muted" style="font-size:14px;margin-top:6px">Or a 3-month export of Queries and Pages. It replaces the keyword guesses with real demand and ranks the work by traffic at risk.</p></div>
+    <div class="panel"><span class="pill p-high">Decision</span><h3 style="margin-top:10px">expeditets.com vs. expeditets.co.in</h3><p class="muted" style="font-size:14px;margin-top:6px">If both sites have the same service pages, they compete in Google. Either give each site its own audience (US clients vs. India delivery and careers) or add hreflang en-US / en-IN.</p></div>
+  </div>
+</section>
+
+<footer>
+  <span>Built from a live crawl of expeditets.co.in on 12 Nov 2026, using the SEO Operator skills in this repo.</span>
+  <span>Source files: <code>docs/seo/expeditets-seo-strategy.md</code> and <code>docs/seo/internal-link-plan.csv</code>.</span>
+</footer>
+</div>
+
+<script>
+const LINKS = [{"priority": "1", "source_url": "/blog/guidewire-staffing-guide/", "target_url": "/guidewire-services/", "anchor_text": "Guidewire staffing services", "placement": "Intro paragraph", "reason": "Blog posts pass no equity to the Guidewire money page"}, {"priority": "1", "source_url": "/blog/guidewire-staffing-guide/", "target_url": "/guidewire-services/", "anchor_text": "talk to our Guidewire practice", "placement": "Closing CTA (Next Steps)", "reason": "Conversion path"}, {"priority": "1", "source_url": "/blog/guidewire-cloud-migration/", "target_url": "/guidewire-services/", "anchor_text": "Guidewire cloud migration support", "placement": "How Expedite Supports section", "reason": "Blog to pillar"}, {"priority": "1", "source_url": "/blog/guidewire-insuretech-trends-2025/", "target_url": "/guidewire-services/", "anchor_text": "Guidewire technology services", "placement": "How Expedite Helps section", "reason": "Blog to pillar"}, {"priority": "1", "source_url": "/blog/why-guidewire-dominates-pc-insurance/", "target_url": "/guidewire-services/", "anchor_text": "Guidewire InsuranceSuite specialists", "placement": "How Expedite Fits In section", "reason": "Blog to pillar"}, {"priority": "1", "source_url": "/guidewire-services/", "target_url": "/blog/guidewire-staffing-guide/", "anchor_text": "guide to hiring Guidewire professionals", "placement": "Guidewire Talent section", "reason": "Pillar has zero body links"}, {"priority": "1", "source_url": "/guidewire-services/", "target_url": "/blog/guidewire-cloud-migration/", "anchor_text": "what insurers need to know about Guidewire Cloud migration", "placement": "Cloud Platform section", "reason": "Pillar to supporting post"}, {"priority": "1", "source_url": "/guidewire-services/", "target_url": "/blog/why-guidewire-dominates-pc-insurance/", "anchor_text": "why Guidewire leads P&C insurance core systems", "placement": "The Platform section", "reason": "Pillar to supporting post"}, {"priority": "1", "source_url": "/guidewire-services/", "target_url": "/case-study/offshore-managed-services-insurance/", "anchor_text": "offshore managed IT services for a US insurer", "placement": "New Proven Results block", "reason": "Insurance proof for Guidewire buyers"}, {"priority": "1", "source_url": "/guidewire-services/", "target_url": "/case-study/enterprise-it-outsourcing-transformation/", "anchor_text": "IT outsourcing transformation for a US insurance company", "placement": "New Proven Results block", "reason": "Insurance proof for Guidewire buyers"}, {"priority": "1", "source_url": "(global nav + footer)", "target_url": "/case-study/", "anchor_text": "Case Studies", "placement": "Main nav and footer", "reason": "Hub currently has 0 inlinks (orphan)"}, {"priority": "2", "source_url": "/blog/guidewire-staffing-guide/", "target_url": "/blog/guidewire-cloud-migration/", "anchor_text": "staffing a Guidewire Cloud migration", "placement": "Key Guidewire Roles section", "reason": "Cluster cross-link"}, {"priority": "2", "source_url": "/blog/guidewire-staffing-guide/", "target_url": "/staff-augmentation/", "anchor_text": "IT staff augmentation", "placement": "Sourcing Strategies section", "reason": "Secondary service"}, {"priority": "2", "source_url": "/blog/guidewire-cloud-migration/", "target_url": "/blog/guidewire-staffing-guide/", "anchor_text": "Guidewire roles you will need to hire", "placement": "Staffing Implications section", "reason": "Cluster cross-link"}, {"priority": "2", "source_url": "/blog/guidewire-cloud-migration/", "target_url": "/offshore-services/", "anchor_text": "offshore Guidewire delivery team", "placement": "Staffing Implications section", "reason": "Secondary service"}, {"priority": "2", "source_url": "/blog/guidewire-insuretech-trends-2025/", "target_url": "/blog/why-guidewire-dominates-pc-insurance/", "anchor_text": "Guidewire platform overview", "placement": "Cloud-First section", "reason": "Cluster cross-link"}, {"priority": "2", "source_url": "/blog/guidewire-insuretech-trends-2025/", "target_url": "/blog/guidewire-cloud-migration/", "anchor_text": "moving Guidewire to the cloud", "placement": "Cloud-First section", "reason": "Cluster cross-link"}, {"priority": "2", "source_url": "/blog/why-guidewire-dominates-pc-insurance/", "target_url": "/blog/guidewire-staffing-guide/", "anchor_text": "hiring Guidewire developers", "placement": "What This Means for Technology Teams", "reason": "Cluster cross-link"}, {"priority": "2", "source_url": "/blog/why-guidewire-dominates-pc-insurance/", "target_url": "/blog/guidewire-insuretech-trends-2025/", "anchor_text": "InsurTech trends shaping Guidewire", "placement": "Where Guidewire Fits section", "reason": "Cluster cross-link"}, {"priority": "2", "source_url": "/case-study/ecommerce-cloud-migration-team/", "target_url": "/staff-augmentation/", "anchor_text": "IT staff augmentation services", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/fintech-engineering-team-scaling/", "target_url": "/staff-augmentation/", "anchor_text": "staff augmentation for FinTech", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/healthcare-platform-engineering/", "target_url": "/staff-augmentation/", "anchor_text": "dedicated healthcare engineers", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/enterprise-it-outsourcing-transformation/", "target_url": "/it-outsourcing/", "anchor_text": "enterprise IT outsourcing services", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/healthcare-it-outsourcing/", "target_url": "/it-outsourcing/", "anchor_text": "healthcare IT outsourcing", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/saas-product-outsourcing/", "target_url": "/it-outsourcing/", "anchor_text": "outsourced product engineering", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/custom-crm-platform-development/", "target_url": "/custom-software-development/", "anchor_text": "custom CRM development", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/healthcare-software-development/", "target_url": "/custom-software-development/", "anchor_text": "custom healthcare software development", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/enterprise-erp-modernization/", "target_url": "/custom-software-development/", "anchor_text": "ERP modernisation services", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/offshore-ecommerce-platform/", "target_url": "/offshore-services/", "anchor_text": "offshore development team", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/offshore-fintech-development-center/", "target_url": "/offshore-services/", "anchor_text": "offshore development centre in India", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/offshore-managed-services-insurance/", "target_url": "/offshore-services/", "anchor_text": "offshore managed IT services", "placement": "Overview paragraph", "reason": "Case study dead end -> service"}, {"priority": "2", "source_url": "/case-study/offshore-managed-services-insurance/", "target_url": "/guidewire-services/", "anchor_text": "insurance technology and Guidewire services", "placement": "Conclusion", "reason": "Feed the niche pillar"}, {"priority": "2", "source_url": "/case-study/enterprise-it-outsourcing-transformation/", "target_url": "/guidewire-services/", "anchor_text": "P&C insurance technology talent", "placement": "Conclusion", "reason": "Feed the niche pillar"}, {"priority": "2", "source_url": "(all 12 case studies)", "target_url": "/contact/", "anchor_text": "Discuss a similar project", "placement": "End-of-page CTA", "reason": "No conversion path today"}, {"priority": "2", "source_url": "(all 12 case studies)", "target_url": "(2 sibling case studies in same service)", "anchor_text": "<case study title>", "placement": "Related case studies block", "reason": "Spread equity across case studies"}, {"priority": "3", "source_url": "/about/", "target_url": "/staff-augmentation/", "anchor_text": "staff augmentation", "placement": "What We Do section", "reason": "About has no body links"}, {"priority": "3", "source_url": "/about/", "target_url": "/it-outsourcing/", "anchor_text": "IT outsourcing", "placement": "What We Do section", "reason": "About has no body links"}, {"priority": "3", "source_url": "/about/", "target_url": "/custom-software-development/", "anchor_text": "custom software development", "placement": "What We Do section", "reason": "About has no body links"}, {"priority": "3", "source_url": "/about/", "target_url": "/offshore-services/", "anchor_text": "offshore services", "placement": "What We Do section", "reason": "About has no body links"}, {"priority": "3", "source_url": "/about/", "target_url": "/guidewire-services/", "anchor_text": "Guidewire practice", "placement": "What We Do section", "reason": "About has no body links"}, {"priority": "3", "source_url": "/job-seekers/", "target_url": "/guidewire-services/", "anchor_text": "Guidewire careers", "placement": "Employment Opportunities section", "reason": "Relevance + recruiting"}];
+const PAGES = [{"p": "/", "t": 85, "d": 179, "w": 591, "inl": 26, "nav": true, "bodyout": 4, "noalt": 39, "imgs": 62, "canon": false, "og": false, "ld": ["Organization", "ImageObject", "PostalAddress", "Organization", "WebSite"], "time": 0.54, "h1": ["Empowering Innovation And Excellence"]}, {"p": "/about/", "t": 43, "d": 217, "w": 583, "inl": 26, "nav": true, "bodyout": 0, "noalt": 6, "imgs": 44, "canon": false, "og": true, "ld": ["Organization", "PostalAddress", "Organization", "WebPage", "BreadcrumbList", "ListItem", "ListItem"], "time": 0.46, "h1": ["Delivering Technology Excellence from India"]}, {"p": "/blog/", "t": 90, "d": 162, "w": 374, "inl": 26, "nav": true, "bodyout": 4, "noalt": 11, "imgs": 27, "canon": false, "og": true, "ld": ["Blog", "Organization", "BreadcrumbList", "ListItem", "ListItem"], "time": 0.59, "h1": ["Blog & Industry Insights"]}, {"p": "/blog/guidewire-cloud-migration/", "t": 82, "d": 178, "w": 1241, "inl": 1, "nav": false, "bodyout": 0, "noalt": 7, "imgs": 20, "canon": false, "og": true, "ld": ["Article", "Organization", "Organization", "ImageObject", "BreadcrumbList", "ListItem", "ListItem", "ListItem"], "time": 0.55, "h1": ["Guidewire Cloud Migration: What Insurers Need to Know Before Making the Move"]}, {"p": "/blog/guidewire-insuretech-trends-2025/", "t": 90, "d": 191, "w": 1113, "inl": 1, "nav": false, "bodyout": 0, "noalt": 7, "imgs": 20, "canon": false, "og": true, "ld": ["Article", "Organization", "Organization", "ImageObject", "BreadcrumbList", "ListItem", "ListItem", "ListItem"], "time": 0.52, "h1": ["InsurTech Trends 2025: How Guidewire Is Shaping the Future of P&C Insurance"]}, {"p": "/blog/guidewire-staffing-guide/", "t": 89, "d": 169, "w": 1448, "inl": 1, "nav": false, "bodyout": 0, "noalt": 7, "imgs": 20, "canon": false, "og": true, "ld": ["Article", "Organization", "Organization", "ImageObject", "BreadcrumbList", "ListItem", "ListItem", "ListItem", "FAQPage", "Question", "Answer", "Question", "Answer"], "time": 0.59, "h1": ["The Complete Guide to Hiring Guidewire Professionals in 2025"]}, {"p": "/blog/why-guidewire-dominates-pc-insurance/", "t": 108, "d": 174, "w": 1577, "inl": 1, "nav": false, "bodyout": 0, "noalt": 7, "imgs": 20, "canon": false, "og": true, "ld": ["Article", "Organization", "Organization", "ImageObject", "BreadcrumbList", "ListItem", "ListItem", "ListItem", "FAQPage", "Question", "Answer", "Question", "Answer", "Question", "Answer"], "time": 0.55, "h1": ["Why Guidewire Dominates P&C Insurance: Platform Overview for Technology Leaders"]}, {"p": "/case-study/custom-crm-platform-development/", "t": 72, "d": 145, "w": 663, "inl": 2, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.45, "h1": ["Case Study: Building a Custom CRM Platform for Healthcare Services"]}, {"p": "/case-study/ecommerce-cloud-migration-team/", "t": 90, "d": 167, "w": 641, "inl": 1, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.67, "h1": ["Case Study: Deploying 25 Cloud Engineers to Accelerate a $50M E-Commerce Platform Migration"]}, {"p": "/case-study/enterprise-erp-modernization/", "t": 69, "d": 170, "w": 674, "inl": 1, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.48, "h1": ["Case Study: Modernising a Legacy ERP System for a US Manufacturer"]}, {"p": "/case-study/enterprise-it-outsourcing-transformation/", "t": 81, "d": 157, "w": 641, "inl": 2, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.5, "h1": ["Case Study: Enterprise IT Outsourcing Transformation for a US Insurance Company"]}, {"p": "/case-study/fintech-engineering-team-scaling/", "t": 83, "d": 167, "w": 638, "inl": 2, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.46, "h1": ["Case Study: Scaling a FinTech Engineering Team from 20 to 65 in 30 Days"]}, {"p": "/case-study/healthcare-it-outsourcing/", "t": 66, "d": 156, "w": 653, "inl": 1, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.66, "h1": ["Case Study: End-to-End IT Outsourcing for a Healthcare SaaS Platform"]}, {"p": "/case-study/healthcare-platform-engineering/", "t": 86, "d": 177, "w": 638, "inl": 1, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.47, "h1": ["Case Study: Embedding 30 Engineers into a Healthcare SaaS Platform for Rapid Feature Delivery"]}, {"p": "/case-study/healthcare-software-development/", "t": 79, "d": 171, "w": 657, "inl": 1, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.45, "h1": ["Case Study: Custom Patient Engagement Platform for a Healthcare Network"]}, {"p": "/case-study/offshore-ecommerce-platform/", "t": 81, "d": 162, "w": 671, "inl": 1, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.48, "h1": ["Case Study: Launching a Next-Gen E-Commerce Platform with an Offshore Team"]}, {"p": "/case-study/offshore-fintech-development-center/", "t": 76, "d": 143, "w": 709, "inl": 2, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.47, "h1": ["Case Study: Building a 40-Engineer Offshore Development Centre for a US FinTech"]}, {"p": "/case-study/saas-product-outsourcing/", "t": 68, "d": 150, "w": 645, "inl": 1, "nav": false, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": [], "time": 0.5, "h1": ["Case Study: Outsourcing Full-Stack Engineering for a B2B SaaS Product"]}, {"p": "/contact/", "t": 45, "d": 248, "w": 431, "inl": 26, "nav": true, "bodyout": 0, "noalt": 8, "imgs": 20, "canon": false, "og": true, "ld": ["Organization", "PostalAddress", "Organization", "ContactPage", "BreadcrumbList", "ListItem", "ListItem"], "time": 0.45, "h1": ["Let's Connect"]}, {"p": "/custom-software-development/", "t": 65, "d": 247, "w": 2668, "inl": 26, "nav": true, "bodyout": 3, "noalt": 20, "imgs": 38, "canon": false, "og": true, "ld": ["Organization", "PostalAddress", "Organization", "Service", "Organization", "BreadcrumbList", "ListItem", "ListItem", "FAQPage", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer"], "time": 0.57, "h1": ["Bespoke Custom Software Built to Scale"]}, {"p": "/guidewire-services/", "t": 69, "d": 228, "w": 1859, "inl": 26, "nav": true, "bodyout": 0, "noalt": 16, "imgs": 29, "canon": false, "og": true, "ld": ["Organization", "PostalAddress", "Organization", "Service", "Organization", "BreadcrumbList", "ListItem", "ListItem", "FAQPage", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer"], "time": 0.62, "h1": ["Guidewire Staffing & Technology Services"]}, {"p": "/it-outsourcing/", "t": 60, "d": 192, "w": 1759, "inl": 26, "nav": true, "bodyout": 3, "noalt": 19, "imgs": 37, "canon": false, "og": true, "ld": ["Organization", "PostalAddress", "Organization", "Service", "Organization", "BreadcrumbList", "ListItem", "ListItem", "FAQPage", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer"], "time": 0.59, "h1": ["Enterprise IT Outsourcing Services from India"]}, {"p": "/job-seekers/", "t": 57, "d": 259, "w": 672, "inl": 26, "nav": true, "bodyout": 0, "noalt": 15, "imgs": 29, "canon": false, "og": true, "ld": ["Organization", "PostalAddress", "Organization", "WebPage", "BreadcrumbList", "ListItem", "ListItem"], "time": 0.44, "h1": ["Are You Looking For An Exciting New Position?"]}, {"p": "/offshore-services/", "t": 88, "d": 253, "w": 3014, "inl": 26, "nav": true, "bodyout": 3, "noalt": 20, "imgs": 38, "canon": false, "og": true, "ld": ["Organization", "PostalAddress", "Organization", "Service", "Organization", "BreadcrumbList", "ListItem", "ListItem", "FAQPage", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer"], "time": 0.64, "h1": ["Trusted Offshore Service Provider from India"]}, {"p": "/privacy-policy/", "t": 49, "d": 107, "w": 805, "inl": 26, "nav": true, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": ["Organization", "WebPage", "BreadcrumbList", "ListItem", "ListItem"], "time": 0.46, "h1": ["Privacy Policy"]}, {"p": "/staff-augmentation/", "t": 68, "d": 234, "w": 1642, "inl": 26, "nav": true, "bodyout": 3, "noalt": 19, "imgs": 37, "canon": false, "og": true, "ld": ["Organization", "PostalAddress", "Organization", "Service", "Organization", "BreadcrumbList", "ListItem", "ListItem", "FAQPage", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer", "Question", "Answer"], "time": 0.66, "h1": ["IT Staff Augmentation Services in India"]}, {"p": "/terms-and-conditions/", "t": 47, "d": 83, "w": 487, "inl": 26, "nav": true, "bodyout": 0, "noalt": 6, "imgs": 18, "canon": false, "og": true, "ld": ["Organization", "WebPage", "BreadcrumbList", "ListItem", "ListItem"], "time": 0.45, "h1": ["Terms of Use"]}]
+;
+
+const FIXES = [
+  ["T1","No canonical tag on any page","29 of 29 pages","H","L"],
+  ["T2","SSL certificate doesn't cover www.","Whole domain","H","L"],
+  ["T3","Case Studies hub has 0 internal links","1 page","H","L"],
+  ["T4","No structured data on case studies","12 pages","M","L"],
+  ["T5","Homepage H1 has no keyword","1 page","M","L"],
+  ["T6","No Open Graph tags on the homepage","1 page","L","L"],
+  ["T7","Meta descriptions too long","20 of 29 pages","M","L"],
+  ["T8","Titles too long","21 of 29 pages","M","L"],
+  ["T9","Images missing alt text","279 images","L","L"],
+  ["T10","Blog posts still dated 2025","3 posts","M","M"],
+  ["T11","Stale sitemap dates","5 pages","L","L"],
+  ["T12","Server slow at times (10s timeouts)","Random pages","M","M"],
+  ["T13","Generic H2 headings","17 pages","L","M"],
+  ["T14","Possible overlap with expeditets.com","Unknown","?","?"]
+];
+const lvl = {H:["p-high","High"],M:["p-med","Medium"],L:["p-low","Low"],"?":["p-acc","Decide"]};
+
+// matrix + list
+FIXES.forEach(([id,t,scope,imp,eff])=>{
+  const cell=document.querySelector(`.cell[data-c="${imp}-${eff}"]`);
+  if(cell){const c=document.createElement("span");c.className="chip";c.tabIndex=0;c.textContent=id;c.title=`${id}: ${t} (${scope})`;cell.appendChild(c);}
+  const row=document.createElement("div");row.className="fix";
+  row.innerHTML=`<span class="id">${id}</span><div class="body"><strong></strong><span></span></div><span class="pill ${lvl[imp][0]}">${lvl[imp][1]} impact</span>`;
+  row.querySelector("strong").textContent=t;row.querySelector(".body span").textContent=scope;
+  document.getElementById("fixes").appendChild(row);
+});
+
+// inbound bars
+const inb=document.getElementById("inbars");
+const max=26;
+const groups=[
+  ["Nav and footer pages", p=>p.nav && p.p!=="/privacy-policy/" && p.p!=="/terms-and-conditions/"],
+  ["Case studies", p=>p.p.startsWith("/case-study/") && p.p!=="/case-study/"],
+  ["Blog posts", p=>p.p.startsWith("/blog/") && p.p!=="/blog/"]
+];
+const short=s=>s.replace(/^\/(case-study|blog)\//,"").replace(/\/$/,"")||"/";
+function bar(name,val,cls){
+  const r=document.createElement("div");r.className="brow "+cls;
+  r.innerHTML=`<span class="nm"></span><span class="tr"><i style="width:${Math.max(val/max*100,val?1.5:0)}%"></i></span><span class="v">${val}</span>`;
+  r.querySelector(".nm").textContent=name;r.querySelector(".nm").title=name;inb.appendChild(r);
+}
+groups.forEach(([g,f])=>{
+  const h=document.createElement("div");h.className="bgroup";h.textContent=g;inb.appendChild(h);
+  const rows=PAGES.filter(f);
+  if(g==="Case studies"){bar("Case Studies hub (/case-study/)",0,"c-high");
+    // offshore-managed-services-insurance timed out in the first pass; the strategy counts 1-2 inbound links for every case study
+    if(!rows.find(p=>p.p.includes("offshore-managed-services-insurance"))) rows.push({p:"/case-study/offshore-managed-services-insurance/",inl:1});}
+  rows.sort((a,b)=>b.inl-a.inl).forEach(p=>bar(g==="Nav and footer pages"?p.p:short(p.p),p.inl,p.nav?"c-acc":""));
+});
+
+// strip charts
+function strip(el,key,limit,xmax,label){
+  const W=460,H=120,pl=10,pr=14,y=58;
+  const sx=v=>pl+(Math.min(v,xmax)/xmax)*(W-pl-pr);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${label}">`;
+  s+=`<line class="s-axis" x1="${pl}" x2="${W-pr}" y1="${y+28}" y2="${y+28}"/>`;
+  for(let t=0;t<=xmax;t+=xmax/4){s+=`<text class="s-txt" x="${sx(t)}" y="${y+44}" text-anchor="middle">${t}</text>`;}
+  s+=`<line class="s-lim" x1="${sx(limit)}" x2="${sx(limit)}" y1="14" y2="${y+28}"/><text class="s-txt" x="${sx(limit)+4}" y="22">limit ${limit}</text>`;
+  const sorted=[...PAGES].sort((a,b)=>a[key]-b[key]);
+  const used={};
+  sorted.forEach(p=>{const b=Math.round(p[key]/4);used[b]=(used[b]||0)+1;const dy=((used[b]-1)%5)*9;
+    s+=`<circle cx="${sx(p[key])}" cy="${y+16-dy}" r="4" class="${p[key]>limit?"s-bad":"s-ok"}"><title>${p.p}: ${p[key]} characters</title></circle>`;});
+  const over=PAGES.filter(p=>p[key]>limit).length;
+  s+=`</svg><p class="muted" style="font-size:13px;margin-top:6px"><strong style="color:var(--high)">${over}</strong> of ${PAGES.length} pages over the limit</p>`;
+  el.innerHTML=s;
+}
+strip(document.getElementById("strip-t"),"t",60,120,"Title lengths per page");
+strip(document.getElementById("strip-d"),"d",160,280,"Meta description lengths per page");
+
+// titles
+const TITLES=[["/","IT Staffing & Guidewire Services from India | Expedite"],["/staff-augmentation/","IT Staff Augmentation Services in India | Expedite"],["/it-outsourcing/","IT Outsourcing Services Company in India | Expedite"],["/custom-software-development/","Custom Software Development Company | Expedite"],["/offshore-services/","Offshore IT Services & Dedicated Teams India | Expedite"],["/guidewire-services/","Guidewire Staffing & Consulting Services | Expedite"],["/blog/","Guidewire & IT Staffing Insights Blog | Expedite"],["/blog/why-guidewire-dominates-pc-insurance/","Why Guidewire Dominates P&C Insurance | Expedite"],["/case-study/","IT Staffing & Software Case Studies | Expedite"]];
+const tt=document.getElementById("ttable");
+TITLES.forEach(([p,t])=>{const old=PAGES.find(x=>x.p===p);const tr=document.createElement("tr");
+  tr.innerHTML=`<td class="u"></td><td></td><td class="mono">${old?old.t+" → ":""}${t.length}</td>`;tr.children[0].textContent=p;tr.children[1].textContent=t;tt.appendChild(tr);});
+
+// link table
+const tb=document.getElementById("ltable"),cnt=document.getElementById("lcount");
+const pc={"1":"p-high","2":"p-med","3":"p-low"};
+function render(f){
+  tb.textContent="";const rows=LINKS.filter(l=>f==="all"||l.priority===f);
+  rows.forEach(l=>{const tr=document.createElement("tr");
+    tr.innerHTML=`<td><span class="pill ${pc[l.priority]}">P${l.priority}</span></td><td class="u"></td><td class="u"></td><td class="a"></td><td></td>`;
+    tr.children[1].textContent=l.source_url;tr.children[2].textContent=l.target_url;tr.children[3].textContent=l.anchor_text;tr.children[4].textContent=l.placement;tb.appendChild(tr);});
+  cnt.textContent=`Showing ${rows.length} of ${LINKS.length} rows`+(f==="all"?" (two rows each cover all 12 case studies)":"");
+}
+document.querySelectorAll(".fbtn").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".fbtn").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+  render(b.dataset.f);try{localStorage.setItem("seo-filter",b.dataset.f)}catch(e){}
+}));
+let start="all";try{start=localStorage.getItem("seo-filter")||"all"}catch(e){}
+const sb=document.querySelector(`.fbtn[data-f="${start}"]`)||document.getElementById("f-all");sb.click();
+
+// gantt
+const G=[["Canonicals, www certificate, nav link, H1, OG tags","T1, T2, T3, T5, T6",1,2,"o-dev"],["Set up Search Console and GA4 conversion","Measurement",1,2,"o-dev"],["Add the 41 internal links","internal-link-plan.csv",2,4,"o-dev"],["Case study schema, title and meta rewrites","T4, T7, T8",2,4,"o-content"],["Refresh 2025 posts, write a Guidewire case study","T10",3,6,"o-content"],["Publish Guidewire Cloud migration page","Cluster 1",3,6,"o-content"],["PolicyCenter, ClaimCenter, BillingCenter pages","Cluster 1",6,10,"o-content"],["Guidewire rates post; Clutch and GoodFirms","Authority",6,10,"o-mkt"],["Review Search Console, plan next cluster","Positions 4–20, CTR",10,13,"o-seo"]];
+const g=document.getElementById("gantt");
+let h=`<div></div>`;for(let w=1;w<=13;w++)h+=`<div class="wk">W${w}</div>`;
+G.forEach(([t,s,a,b,c],i)=>{const r=i+2;h+=`<div class="task" style="grid-row:${r};grid-column:1">${t}<small>${s}</small></div>`;
+  h+=`<div class="bar ${c}" style="grid-row:${r};grid-column:${a+1} / ${b+2}" title="Weeks ${a}–${b}"></div>`;
+});
+g.innerHTML=h;
+</script>
