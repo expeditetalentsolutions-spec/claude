@@ -1,0 +1,42 @@
+priority,source_url,target_url,anchor_text,placement,reason
+1,/blog/guidewire-staffing-guide/,/guidewire-services/,Guidewire staffing services,Intro paragraph,Blog posts pass no equity to the Guidewire money page
+1,/blog/guidewire-staffing-guide/,/guidewire-services/,talk to our Guidewire practice,Closing CTA (Next Steps),Conversion path
+1,/blog/guidewire-cloud-migration/,/guidewire-services/,Guidewire cloud migration support,How Expedite Supports section,Blog to pillar
+1,/blog/guidewire-insuretech-trends-2025/,/guidewire-services/,Guidewire technology services,How Expedite Helps section,Blog to pillar
+1,/blog/why-guidewire-dominates-pc-insurance/,/guidewire-services/,Guidewire InsuranceSuite specialists,How Expedite Fits In section,Blog to pillar
+1,/guidewire-services/,/blog/guidewire-staffing-guide/,guide to hiring Guidewire professionals,Guidewire Talent section,Pillar has zero body links
+1,/guidewire-services/,/blog/guidewire-cloud-migration/,what insurers need to know about Guidewire Cloud migration,Cloud Platform section,Pillar to supporting post
+1,/guidewire-services/,/blog/why-guidewire-dominates-pc-insurance/,why Guidewire leads P&C insurance core systems,The Platform section,Pillar to supporting post
+1,/guidewire-services/,/case-study/offshore-managed-services-insurance/,offshore managed IT services for a US insurer,New Proven Results block,Insurance proof for Guidewire buyers
+1,/guidewire-services/,/case-study/enterprise-it-outsourcing-transformation/,IT outsourcing transformation for a US insurance company,New Proven Results block,Insurance proof for Guidewire buyers
+1,(global nav + footer),/case-study/,Case Studies,Main nav and footer,Hub currently has 0 inlinks (orphan)
+2,/blog/guidewire-staffing-guide/,/blog/guidewire-cloud-migration/,staffing a Guidewire Cloud migration,Key Guidewire Roles section,Cluster cross-link
+2,/blog/guidewire-staffing-guide/,/staff-augmentation/,IT staff augmentation,Sourcing Strategies section,Secondary service
+2,/blog/guidewire-cloud-migration/,/blog/guidewire-staffing-guide/,Guidewire roles you will need to hire,Staffing Implications section,Cluster cross-link
+2,/blog/guidewire-cloud-migration/,/offshore-services/,offshore Guidewire delivery team,Staffing Implications section,Secondary service
+2,/blog/guidewire-insuretech-trends-2025/,/blog/why-guidewire-dominates-pc-insurance/,Guidewire platform overview,Cloud-First section,Cluster cross-link
+2,/blog/guidewire-insuretech-trends-2025/,/blog/guidewire-cloud-migration/,moving Guidewire to the cloud,Cloud-First section,Cluster cross-link
+2,/blog/why-guidewire-dominates-pc-insurance/,/blog/guidewire-staffing-guide/,hiring Guidewire developers,What This Means for Technology Teams,Cluster cross-link
+2,/blog/why-guidewire-dominates-pc-insurance/,/blog/guidewire-insuretech-trends-2025/,InsurTech trends shaping Guidewire,Where Guidewire Fits section,Cluster cross-link
+2,/case-study/ecommerce-cloud-migration-team/,/staff-augmentation/,IT staff augmentation services,Overview paragraph,Case study dead end -> service
+2,/case-study/fintech-engineering-team-scaling/,/staff-augmentation/,staff augmentation for FinTech,Overview paragraph,Case study dead end -> service
+2,/case-study/healthcare-platform-engineering/,/staff-augmentation/,dedicated healthcare engineers,Overview paragraph,Case study dead end -> service
+2,/case-study/enterprise-it-outsourcing-transformation/,/it-outsourcing/,enterprise IT outsourcing services,Overview paragraph,Case study dead end -> service
+2,/case-study/healthcare-it-outsourcing/,/it-outsourcing/,healthcare IT outsourcing,Overview paragraph,Case study dead end -> service
+2,/case-study/saas-product-outsourcing/,/it-outsourcing/,outsourced product engineering,Overview paragraph,Case study dead end -> service
+2,/case-study/custom-crm-platform-development/,/custom-software-development/,custom CRM development,Overview paragraph,Case study dead end -> service
+2,/case-study/healthcare-software-development/,/custom-software-development/,custom healthcare software development,Overview paragraph,Case study dead end -> service
+2,/case-study/enterprise-erp-modernization/,/custom-software-development/,ERP modernisation services,Overview paragraph,Case study dead end -> service
+2,/case-study/offshore-ecommerce-platform/,/offshore-services/,offshore development team,Overview paragraph,Case study dead end -> service
+2,/case-study/offshore-fintech-development-center/,/offshore-services/,offshore development centre in India,Overview paragraph,Case study dead end -> service
+2,/case-study/offshore-managed-services-insurance/,/offshore-services/,offshore managed IT services,Overview paragraph,Case study dead end -> service
+2,/case-study/offshore-managed-services-insurance/,/guidewire-services/,insurance technology and Guidewire services,Conclusion,Feed the niche pillar
+2,/case-study/enterprise-it-outsourcing-transformation/,/guidewire-services/,P&C insurance technology talent,Conclusion,Feed the niche pillar
+2,(all 12 case studies),/contact/,Discuss a similar project,End-of-page CTA,No conversion path today
+2,(all 12 case studies),(2 sibling case studies in same service),<case study title>,Related case studies block,Spread equity across case studies
+3,/about/,/staff-augmentation/,staff augmentation,What We Do section,About has no body links
+3,/about/,/it-outsourcing/,IT outsourcing,What We Do section,About has no body links
+3,/about/,/custom-software-development/,custom software development,What We Do section,About has no body links
+3,/about/,/offshore-services/,offshore services,What We Do section,About has no body links
+3,/about/,/guidewire-services/,Guidewire practice,What We Do section,About has no body links
+3,/job-seekers/,/guidewire-services/,Guidewire careers,Employment Opportunities section,Relevance + recruiting
