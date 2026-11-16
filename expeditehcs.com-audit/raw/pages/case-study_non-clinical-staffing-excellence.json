@@ -1,0 +1,124 @@
+{
+  "url": "https://expeditehcs.com/case-study/non-clinical-staffing-excellence/",
+  "source": "url",
+  "status_code": 200,
+  "headers_available": true,
+  "facts": {
+    "title": "Case Study: Non-Clinical Staffing Excellence | Expedite Healthcare",
+    "title_length": 66,
+    "title_count": 1,
+    "meta_description": "How Expedite Healthcare Solutions reduced HR overhead by 40% and filled 85+ non-clinical and administrative roles for a multi-site hospital network.",
+    "meta_description_length": 148,
+    "h1": [
+      "Case Study: Transforming HR Burden with Non-Clinical Staffing Excellence"
+    ],
+    "h1_count": 1,
+    "heading_level_skips": 0,
+    "template_heading_level_skips": 0,
+    "canonical": "https://expeditehcs.com/case-study/non-clinical-staffing-excellence/",
+    "canonical_status": "self",
+    "canonical_note": null,
+    "meta_robots": "robots: index, follow, max-snippet:-1, max-image-preview:large",
+    "x_robots_tag": null,
+    "x_robots_other_agents": [],
+    "hreflang_count": 0,
+    "lang": "en",
+    "has_doctype": true,
+    "meta_charset": "utf-8",
+    "header_charset": "utf-8",
+    "has_viewport": true,
+    "images": {
+      "total": 17,
+      "missing_alt": 1,
+      "empty_alt": 3,
+      "missing_dimensions": 6,
+      "first_image_lazy": false
+    },
+    "links": {
+      "total": 22,
+      "without_text": 1,
+      "generic_anchor": 0,
+      "http_on_https": 0
+    },
+    "mixed_content": 0,
+    "url": {
+      "length": 68,
+      "query_params": []
+    },
+    "html_bytes": 19919,
+    "dom": {
+      "nodes": 265,
+      "max_depth": 14,
+      "max_children": 30,
+      "widest_element": "head"
+    },
+    "open_graph": {
+      "og:type": "website",
+      "og:title": "Case Study: Non-Clinical Staffing Excellence | Expedite Healthcare",
+      "og:description": "How Expedite Healthcare Solutions reduced HR overhead by 40% and filled 85+ non-clinical and administrative roles for a multi-site hospital network.",
+      "og:url": "https://expeditehcs.com/case-study/non-clinical-staffing-excellence/",
+      "og:site_name": "Expedite Healthcare Solutions",
+      "og:image": "https://expeditehcs.com/images/ehslogo.png",
+      "og:locale": "en_US"
+    },
+    "jsonld_blocks": 1,
+    "jsonld_invalid": 0,
+    "word_count": 530,
+    "words_measured": true,
+    "title_relevance": 1.0,
+    "description_relevance": 1.0
+  },
+  "findings": [
+    {
+      "id": "title-too-long",
+      "severity": "Medium",
+      "message": "The title is longer than 60 characters and may be truncated in results. This is a display heuristic, not a published search engine limit.",
+      "evidence": "66 characters: Case Study: Non-Clinical Staffing Excellence | Expedite Healthcare"
+    },
+    {
+      "id": "images-missing-alt",
+      "severity": "Medium",
+      "message": "Some images have no alt attribute. Screen readers and image search rely on alt text. An empty alt is correct for decorative images.",
+      "evidence": "1 of 17 images: https://www.facebook.com/tr?id=1698924444701517&ev=PageVi...",
+      "count": 1
+    },
+    {
+      "id": "images-missing-dimensions",
+      "severity": "Medium",
+      "message": "Some images have no width and height attributes, which lets the layout shift while they load.",
+      "evidence": "6 of 17 images: /images/btn-arrow.svg, /images/btn-arrow.svg, /images/btn-arrow.svg, /images/ehs-bird-small.svg, /images/btn-arrow-green.svg (+1 more)",
+      "count": 6
+    },
+    {
+      "id": "links-without-text",
+      "severity": "Medium",
+      "message": "Some links have no accessible text: no link text, no label and no image alt text.",
+      "evidence": "1 link(s): /",
+      "count": 1
+    }
+  ],
+  "not_checked": [],
+  "thresholds": {
+    "title_min_chars": 30,
+    "title_max_chars": 60,
+    "meta_description_min_chars": 120,
+    "meta_description_max_chars": 160,
+    "url_max_chars": 100,
+    "html_max_bytes": 2000000,
+    "thin_content_min_words": 200,
+    "dom_max_depth": 32,
+    "dom_max_children": 60,
+    "title_relevance_min": 0.3,
+    "description_relevance_min": 0.2,
+    "relevance_min_words": 50,
+    "evidence_max_chars": 200
+  },
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 4,
+    "Low": 0,
+    "total": 4,
+    "checks_run": 47
+  }
+}

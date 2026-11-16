@@ -1,0 +1,23 @@
+{
+  "url": "https://expeditehcs.com",
+  "above_fold": {
+    "h1_visible": true,
+    "cta_visible": true,
+    "hero_image": "/images/ehslogo.png"
+  },
+  "mobile": {
+    "viewport_meta": true,
+    "horizontal_scroll": false,
+    "touch_targets_ok": true
+  },
+  "layout": {
+    "overlapping_elements": [],
+    "text_overflow": []
+  },
+  "fonts": {
+    "base_size": 8.8,
+    "readable": false
+  },
+  "sandbox": false,
+  "error": null
+}

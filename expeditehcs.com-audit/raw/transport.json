@@ -1,0 +1,116 @@
+{
+  "url": "https://expeditehcs.com",
+  "host": "expeditehcs.com",
+  "tls": {
+    "skipped": "proxy configured"
+  },
+  "headers": {
+    "url": "https://expeditehcs.com/",
+    "status": 200,
+    "https": true,
+    "hsts": {
+      "present": false,
+      "value": null,
+      "max_age": null,
+      "include_subdomains": false,
+      "preload": false,
+      "meets_preload_requirements": false,
+      "preload_gaps": [
+        "No Strict-Transport-Security header."
+      ],
+      "preload_scope_note": "Covers the header directives, the certificate and the same-host HTTP redirect when those sections ran. Not checked: that every subdomain serves HTTPS, and that this host is the registrable domain the preload list requires.",
+      "issues": [
+        "Strict-Transport-Security was not sent."
+      ]
+    },
+    "csp": {
+      "present": false,
+      "report_only": false,
+      "policies": 0,
+      "issues": [
+        "Content-Security-Policy was not sent."
+      ]
+    },
+    "x_content_type_options": {
+      "present": true,
+      "value": "nosniff",
+      "ok": true
+    },
+    "framing": {
+      "x_frame_options": "SAMEORIGIN",
+      "frame_ancestors": false,
+      "ok": true
+    },
+    "referrer_policy": {
+      "present": true,
+      "value": "strict-origin-when-cross-origin",
+      "ok": true
+    },
+    "permissions_policy": {
+      "present": false,
+      "feature_policy_present": false
+    },
+    "cookies": []
+  },
+  "redirects": {
+    "http_to_https": {
+      "checked_url": "http://expeditehcs.com/",
+      "redirects_to_https": false,
+      "one_hop": false,
+      "first_hop_status": null,
+      "first_hop_target": null,
+      "first_hop_same_host": null,
+      "permanent": null,
+      "hops": 0,
+      "final_url": null,
+      "error": "ProxyError: HTTPSConnectionPool(host='expeditehcs.com', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', NameResolutionError(\"HTTPSConnection(host='127.0.0.1', port=41839): Failed to resolve '127.0.0.1' ([Errno -4] url_safety: refused to resolve '127.0."
+    },
+    "www": {
+      "host": "expeditehcs.com",
+      "sibling_host": "www.expeditehcs.com",
+      "host_final_url": "https://expeditehcs.com/",
+      "sibling_final_url": null,
+      "sibling_resolves": true,
+      "sibling_tls_error": true,
+      "same_final_url": null,
+      "error": "SSLError: HTTPSConnectionPool(host='www.expeditehcs.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.expeditehcs.com'. (_ssl.c:1035)\")))"
+    }
+  },
+  "findings": [
+    {
+      "id": "hsts-missing",
+      "severity": "Medium",
+      "message": "The HTTPS response does not send a Strict-Transport-Security header.",
+      "evidence": {}
+    },
+    {
+      "id": "csp-missing",
+      "severity": "Low",
+      "message": "No Content-Security-Policy header is sent.",
+      "evidence": {}
+    },
+    {
+      "id": "www-sibling-unreachable",
+      "severity": "Info",
+      "message": "The www or non-www counterpart of the host did not answer.",
+      "evidence": {
+        "sibling_host": "www.expeditehcs.com",
+        "error": "SSLError: HTTPSConnectionPool(host='www.expeditehcs.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.expeditehcs.com'. (_ssl.c:1035)\")))"
+      }
+    },
+    {
+      "id": "permissions-policy-missing",
+      "severity": "Info",
+      "message": "No Permissions-Policy header is sent.",
+      "evidence": {}
+    }
+  ],
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 1,
+    "Low": 1,
+    "Info": 2,
+    "total": 4
+  }
+}

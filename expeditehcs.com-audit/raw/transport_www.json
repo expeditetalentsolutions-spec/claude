@@ -1,0 +1,53 @@
+{
+  "url": "https://www.expeditehcs.com",
+  "host": "www.expeditehcs.com",
+  "tls": {
+    "skipped": "proxy configured"
+  },
+  "headers": {
+    "url": "https://www.expeditehcs.com",
+    "error": "SSLError: HTTPSConnectionPool(host='www.expeditehcs.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.expeditehcs.com'. (_ssl.c:1035)\")))"
+  },
+  "redirects": {
+    "http_to_https": {
+      "checked_url": "http://www.expeditehcs.com/",
+      "redirects_to_https": false,
+      "one_hop": false,
+      "first_hop_status": null,
+      "first_hop_target": null,
+      "first_hop_same_host": null,
+      "permanent": null,
+      "hops": 0,
+      "final_url": null,
+      "error": "ProxyError: HTTPSConnectionPool(host='www.expeditehcs.com', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', NameResolutionError(\"HTTPSConnection(host='127.0.0.1', port=41839): Failed to resolve '127.0.0.1' ([Errno -4] url_safety: refused to resolve '12"
+    },
+    "www": {
+      "host": "www.expeditehcs.com",
+      "sibling_host": "expeditehcs.com",
+      "host_final_url": null,
+      "sibling_final_url": "https://expeditehcs.com/",
+      "sibling_resolves": true,
+      "sibling_tls_error": false,
+      "same_final_url": null,
+      "error": "SSLError: HTTPSConnectionPool(host='www.expeditehcs.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.expeditehcs.com'. (_ssl.c:1035)\")))"
+    }
+  },
+  "findings": [
+    {
+      "id": "headers-not-checked",
+      "severity": "Info",
+      "message": "The page could not be fetched, so its response headers were not graded.",
+      "evidence": {
+        "error": "SSLError: HTTPSConnectionPool(host='www.expeditehcs.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.expeditehcs.com'. (_ssl.c:1035)\")))"
+      }
+    }
+  ],
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0,
+    "Info": 1,
+    "total": 1
+  }
+}

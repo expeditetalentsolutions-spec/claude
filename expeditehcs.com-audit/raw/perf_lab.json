@@ -1,0 +1,114 @@
+{
+ "name": "mobile",
+ "ttfb": 675.8000000000466,
+ "dcl": 1915.9000000001397,
+ "load": 2674.2000000001863,
+ "lcp": {
+  "t": 1436,
+  "el": "<p>At Expedite Healthcare Solutions, we move quickly, deliver with accuracy, and adapt to your needs\n                        seamlessly. Hospitals, clinics, and",
+  "size": 31768
+ },
+ "cls": 0,
+ "bodyFont": "8.8px",
+ "htmlFont": "8.8px",
+ "textBlocks": 9,
+ "under14px": 1,
+ "minFont": 13.904,
+ "medianFont": 15.84,
+ "requests": 35,
+ "by": {
+  "document": {
+   "n": 1,
+   "kb": 7.8359375
+  },
+  "stylesheet": {
+   "n": 4,
+   "kb": 8.951171875
+  },
+  "image": {
+   "n": 26,
+   "kb": 754.9228515625
+  },
+  "font": {
+   "n": 1,
+   "kb": 0
+  },
+  "script": {
+   "n": 1,
+   "kb": 0.9560546875
+  },
+  "media": {
+   "n": 2,
+   "kb": 8822.7890625
+  }
+ },
+ "bigImages": [
+  "77KB https://expeditehcs.com/images/ehslogo.png",
+  "74KB https://expeditehcs.com/images/footer-1.jpg",
+  "61KB https://expeditehcs.com/images/Aya_All-Logos_Grey.png",
+  "56KB https://expeditehcs.com/images/Xerox_All-Logos_Grey.png",
+  "55KB https://expeditehcs.com/images/story-1.png",
+  "48KB https://expeditehcs.com/images/story-2.png"
+ ],
+ "thirdParty": [
+  "fonts.googleapis.com"
+ ],
+ "errors": []
+}
+{
+ "name": "desktop",
+ "ttfb": 192.69999999995343,
+ "dcl": 1252.1999999999534,
+ "load": 2486.4000000001397,
+ "lcp": {
+  "t": 900,
+  "el": "<h1>Speed, Agility, And Precision In Placing Healthcare Talent</h1>",
+  "size": 181327
+ },
+ "cls": 0.06501987118131403,
+ "bodyFont": "10px",
+ "htmlFont": "10px",
+ "textBlocks": 9,
+ "under14px": 1,
+ "minFont": 12,
+ "medianFont": 18,
+ "requests": 35,
+ "by": {
+  "document": {
+   "n": 1,
+   "kb": 7.8359375
+  },
+  "stylesheet": {
+   "n": 4,
+   "kb": 8.951171875
+  },
+  "image": {
+   "n": 26,
+   "kb": 754.9228515625
+  },
+  "font": {
+   "n": 1,
+   "kb": 0
+  },
+  "script": {
+   "n": 1,
+   "kb": 0.9560546875
+  },
+  "media": {
+   "n": 2,
+   "kb": 8822.7890625
+  }
+ },
+ "bigImages": [
+  "77KB https://expeditehcs.com/images/ehslogo.png",
+  "74KB https://expeditehcs.com/images/footer-1.jpg",
+  "61KB https://expeditehcs.com/images/Aya_All-Logos_Grey.png",
+  "56KB https://expeditehcs.com/images/Xerox_All-Logos_Grey.png",
+  "55KB https://expeditehcs.com/images/story-1.png",
+  "48KB https://expeditehcs.com/images/story-2.png"
+ ],
+ "thirdParty": [
+  "fonts.googleapis.com"
+ ],
+ "errors": []
+}

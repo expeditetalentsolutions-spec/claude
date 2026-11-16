@@ -1,0 +1,303 @@
+{
+  "summary": {
+    "health_score": 68,
+    "business_type": "B2B healthcare staffing & Health IT consulting agency (hybrid: national service, HQ Alpharetta GA)",
+    "top_findings": [
+      "www.expeditehcs.com serves an invalid TLS certificate (hostname mismatch)",
+      "18 JobPostings on one listing page, all wrongly marked TELECOMMUTE",
+      "4.5 MB video downloaded twice on home (8.8 MB) and on every page via the footer",
+      "Sitemap lists /case-study/healthcare-data-management/, which returns 404",
+      "Case studies anonymous/undated/no author; llms.txt stats not on site"
+    ],
+    "quick_wins": [
+      "Remove dead URL from sitemap.xml",
+      "Use one identical URL for both videos + preload=none on footer",
+      "Remove jobLocationType TELECOMMUTE",
+      "Add HSTS header",
+      "Shorten 12 titles and 11 meta descriptions"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 72,
+      "what_works": [
+        "Single-hop HTTP\u2192HTTPS 301",
+        "Real 404s",
+        "Self-referencing canonicals on all pages",
+        "Clean robots.txt with sitemap",
+        "Valid XML sitemap"
+      ],
+      "findings": [
+        {
+          "title": "www host has invalid certificate",
+          "severity": "High",
+          "description": "Hostname mismatch for www.expeditehcs.com; visitors see a security error.",
+          "recommendation": "Reissue cert for apex + www; 301 www\u2192apex."
+        },
+        {
+          "title": "Sitemap URL returns 404",
+          "severity": "High",
+          "description": "/case-study/healthcare-data-management/ is in sitemap.xml and returns 404.",
+          "recommendation": "Publish the page or remove it from the sitemap."
+        },
+        {
+          "title": "No HSTS",
+          "severity": "Medium",
+          "description": "Strict-Transport-Security not sent.",
+          "recommendation": "Add HSTS max-age=31536000."
+        },
+        {
+          "title": "Identical lastmod on all URLs",
+          "severity": "Low",
+          "description": "17/17 = 2026-10-19.",
+          "recommendation": "Use real modification dates."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 65,
+      "what_works": [
+        "Substantive service pages (500\u20131,500 words)",
+        "Case studies with concrete metrics",
+        "Server-rendered content"
+      ],
+      "findings": [
+        {
+          "title": "Anonymous, undated case studies",
+          "severity": "High",
+          "description": "No client, date or author on 6 case studies.",
+          "recommendation": "Add dates, named authors, attributed clients/testimonials."
+        },
+        {
+          "title": "Thin case-study hub",
+          "severity": "Medium",
+          "description": "/case-study/ has 116 words.",
+          "recommendation": "Add intro and outcome summaries."
+        },
+        {
+          "title": "llms.txt claims not on site",
+          "severity": "Medium",
+          "description": "500+ clients and 10,000+ placed appear only in llms.txt.",
+          "recommendation": "Align on-site and llms.txt figures."
+        },
+        {
+          "title": "Weak About-page trust signals",
+          "severity": "Medium",
+          "description": "No leadership, certification proof.",
+          "recommendation": "Add team bios and certification links."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 68,
+      "what_works": [
+        "One H1 per page",
+        "Unique titles",
+        "Good title/description relevance"
+      ],
+      "findings": [
+        {
+          "title": "Titles too long",
+          "severity": "Medium",
+          "description": "12/16 over 60 chars (max 84).",
+          "recommendation": "Shorten, keyword first."
+        },
+        {
+          "title": "Meta descriptions too long",
+          "severity": "Medium",
+          "description": "11/16 over 160 chars (max 226).",
+          "recommendation": "Trim to 140\u2013155."
+        },
+        {
+          "title": "Generic H1s",
+          "severity": "Medium",
+          "description": "'Let's Start Something Big Together' on /healthcare-staffing/.",
+          "recommendation": "Keyword-led H1s."
+        },
+        {
+          "title": "Links without accessible text",
+          "severity": "Medium",
+          "description": "8 per page.",
+          "recommendation": "Add aria-label/alt."
+        },
+        {
+          "title": "No mobile hiring CTA above fold",
+          "severity": "Medium",
+          "description": "Only 'Discover the world of Expedite'.",
+          "recommendation": "Add Request Staff CTA."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 55,
+      "what_works": [
+        "Valid JSON-LD on every page",
+        "Organization, Service, FAQPage, BreadcrumbList, EmploymentAgency present"
+      ],
+      "findings": [
+        {
+          "title": "JobPosting on listing page",
+          "severity": "High",
+          "description": "18 JobPostings on /nursing-careers/.",
+          "recommendation": "One job per detail URL."
+        },
+        {
+          "title": "TELECOMMUTE on on-site jobs",
+          "severity": "High",
+          "description": "All postings marked remote with physical locations.",
+          "recommendation": "Remove jobLocationType."
+        },
+        {
+          "title": "JobPosting missing baseSalary/identifier",
+          "severity": "Medium",
+          "description": "Recommended properties absent.",
+          "recommendation": "Add salary ranges and IDs."
+        },
+        {
+          "title": "Duplicate Organization nodes",
+          "severity": "Medium",
+          "description": "Two inconsistent Organization nodes on home.",
+          "recommendation": "Single @id node."
+        },
+        {
+          "title": "No Article schema on case studies",
+          "severity": "Low",
+          "description": "Organization only.",
+          "recommendation": "Add Article with author and dates."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 60,
+      "what_works": [
+        "Lab LCP 1.4 s mobile / 0.9 s desktop",
+        "CLS 0.00 mobile / 0.065 desktop"
+      ],
+      "findings": [
+        {
+          "title": "8.8 MB video payload",
+          "severity": "High",
+          "description": "Same 4.5 MB MP4 fetched twice via different URLs; footer video on every page.",
+          "recommendation": "Single URL, preload=none, compress, poster on mobile."
+        },
+        {
+          "title": "PNG logos",
+          "severity": "Medium",
+          "description": "16 PNGs, 48\u201377 KB each.",
+          "recommendation": "SVG/WebP."
+        },
+        {
+          "title": "No LCP hints/speculation rules",
+          "severity": "Low",
+          "description": "No fetchpriority or speculationrules.",
+          "recommendation": "Add hints."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 88,
+      "what_works": [
+        "All major AI crawlers explicitly allowed",
+        "No WAF challenges",
+        "Valid llms.txt",
+        "Server-rendered content",
+        "FAQPage + Speakable"
+      ],
+      "findings": [
+        {
+          "title": "CCBot blocked",
+          "severity": "Low",
+          "description": "Common Crawl disallowed.",
+          "recommendation": "Reconsider."
+        },
+        {
+          "title": "No llms-full.txt",
+          "severity": "Low",
+          "description": "404.",
+          "recommendation": "Optional."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 75,
+      "what_works": [
+        "Alt text on content images",
+        "Lazy loading on 15 images",
+        "SVG used for icons"
+      ],
+      "findings": [
+        {
+          "title": "Footer logo alt empty",
+          "severity": "Low",
+          "description": "Linked logo has alt=''.",
+          "recommendation": "Descriptive alt."
+        },
+        {
+          "title": "SVGs without dimensions",
+          "severity": "Low",
+          "description": "6 images.",
+          "recommendation": "Add width/height."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "Fix www certificate + 301",
+          "Remove TELECOMMUTE from JobPostings",
+          "Fix/remove dead sitemap URL",
+          "Deduplicate video URL, preload=none",
+          "Add HSTS"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Per-job detail pages with JobPosting",
+          "Compress hero video, mobile poster",
+          "Rewrite titles/metas/H1s",
+          "Mobile hero CTA",
+          "Consolidate Organization schema",
+          "Accessible link text"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Dated, authored case studies with Article schema",
+          "About page leadership + certifications",
+          "Align llms.txt stats",
+          "Expand case-study hub",
+          "Service + location pages"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Connect GSC/GA4 + PSI key",
+          "Monitor Job postings report",
+          "Real lastmod",
+          "Re-audit + drift baseline"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}
